@@ -33,7 +33,7 @@ async fn main() {
     let mut txt_input5 = TextInput::new(275.0, 325.0, 75.0, 35.0, 25.0);
     let mut txt_cash = TextInput::new(600.0, 175.0, 150.0, 35.0, 25.0);
 
-    let mut lbl_owed = Label::new("Customer Owes:", 75.0, 500.0, 30);
+    let mut lbl_owed = Label::new("Customer Owes (With Tax):", 75.0, 500.0, 30);
 
     let mut lbl_help = Label::new("Customer Cash:", 400.0, 200.0, 30);
 
@@ -107,10 +107,12 @@ async fn main() {
                         + (orange * input2 as f64)
                         + (banana * input3 as f64)
                         + (watermelon * input4 as f64)
-                        + (junoball * input5 as f64);
+                        + (junoball * input5 as f64)
+                        * 1.13;
+                        
 
                 lbl_owed.set_text(format!(
-                    "Customer Owes: ${:.2}",owed));
+                    "Customer Owes (With Tax): ${:.2}", owed));
             } else {
                 lbl_change.set_text("Invalid Input");
             }
