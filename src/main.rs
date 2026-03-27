@@ -35,29 +35,29 @@ async fn main() {
 
     let mut lbl_owed = Label::new("Customer Owes (With Tax):", 75.0, 500.0, 30);
 
-    let mut lbl_help = Label::new("Customer Cash:", 400.0, 200.0, 30);
+    let lbl_help = Label::new("Customer Cash:", 400.0, 200.0, 30);
 
-    let mut lbl_change = Label::new("Customer Change:", 500.0, 250.0, 30);
+    let mut lbl_change = Label::new("Customer Change:", 400.0, 250.0, 30);
 
-    let mut lbl_store = Label::new("Bob's General Store!", 75.0, 75.0, 30);
+    let lbl_store = Label::new("Bob's General Store!", 75.0, 75.0, 30);
 
-    let mut lbl_apple = Label::new("Apple $3.99", 100.0, 150.0, 30);
+    let lbl_apple = Label::new("Apple $3.99", 100.0, 150.0, 30);
 
     let apple: f64 = 2.99;
 
-    let mut lbl_orange = Label::new("Orange $2.99", 100.0, 200.0, 30);
+    let lbl_orange = Label::new("Orange $2.99", 100.0, 200.0, 30);
 
     let orange: f64 = 2.99;
 
-    let mut lbl_banana = Label::new("Banana $3.50", 100.0, 250.0, 30);
+    let lbl_banana = Label::new("Banana $3.50", 100.0, 250.0, 30);
 
     let banana: f64 = 3.50;
 
-    let mut lbl_watermelon = Label::new("Watermelon $7.99", 100.0, 300.0, 22);
+    let lbl_watermelon = Label::new("Watermelon $7.99", 100.0, 300.0, 22);
 
     let watermelon: f64 = 7.99;
 
-    let mut lbl_junoball = Label::new("Juno Ball $19.99", 100.0, 350.0, 22);
+    let lbl_junoball = Label::new("Juno Ball $19.99", 100.0, 350.0, 22);
 
     let junoball: f64 = 19.99;
 
@@ -125,10 +125,10 @@ async fn main() {
 
             let cash: f32 = txt_cash.get_text().trim().parse().unwrap_or(0.0);
             if cash >= owed as f32 {
-                lbl_change.set_text(&format!("You can afford this! Your cash back is : ${:.2}", cash - owed as f32));
+                lbl_change.set_text(&format!("You can afford this!\nYour cash back is : ${:.2}", cash - owed as f32));
             } else {
                 lbl_change.set_text(&format!(
-                    "You cannot afford this! \n All the items Total to:${:.2} you have : ${:.2}",
+                    "You cannot afford this!\nAll the items Total to:${:.2}\nyou only have : ${:.2}",
                     owed, cash
                 ));
             }
