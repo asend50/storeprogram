@@ -71,7 +71,6 @@ async fn main() {
 
     loop {
         clear_background(WHITE);
-        draw_grid(50.0, BROWN);
 
         if btn_exit.click() {
             break;
